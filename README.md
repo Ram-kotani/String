@@ -1,2 +1,243 @@
-# web-Tech
-web technology Subject given Homeworks and assignments on HTML,CSS,JS
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Programs with Search</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        .answer {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+        }
+        .search-container {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>JavaScript Programs Table</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Program</th>
+            <th>Search</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Create a JS program that finds the 10th character from an entered Array (use popup)</td>
+            <td>
+                <div class="search-container">
+                    <input type="text" id="search1" placeholder="Enter an array (comma's separated)">
+                    <button onclick="find10thChar()">Search</button>
+                    <div id="answer1" class="answer"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Create a JS program to find the last element from the given array (use popup)</td>
+            <td>
+                <div class="search-container">
+                    <input type="text" id="search2" placeholder="Enter an array (comma's separated)">
+                    <button onclick="findLastElement()">Search</button>
+                    <div id="answer2" class="answer"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Create a popup that allows only 10 digits in the text field.</td>
+            <td>
+                <div class="search-container">
+                    <input type="text" id="search3" placeholder="Enter any 10 digit number">
+                    <button onclick="validatePhoneNumber()">Search</button>
+                    <div id="answer3" class="answer"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Program to find specific words in an array and find the repeated characters. (Array and word should be entered by the user)</td>
+            <td>
+                <div class="search-container">
+                    <input type="text" id="search4array" placeholder="Enter words array (comma's separated)">
+                    <input type="text" id="search4word" placeholder="Enter any word">
+                    <button onclick="findRepeatedChars()">Search</button>
+                    <div id="answer4" class="answer"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Program to find the number of vowels in an entered array of characters.</td>
+            <td>
+                <div class="search-container">
+                    <input type="text" id="search5" placeholder="Enter char array (comma's separated)">
+                    <button onclick="countVowels()">Search</button>
+                    <div id="answer5" class="answer"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Find the longest word from the string.</td>
+            <td>
+                <div class="search-container">
+                    <input type="text" id="search6" placeholder="Enter any sentence">
+                    <button onclick="findLongestWord()">Search</button>
+                    <div id="answer6" class="answer"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Convert words from UPPERCASE to lowercase and lowercase to UPPERCASE.</td>
+            <td>
+                <div class="search-container">
+                    <input type="text" id="search7" placeholder="Enter any sentence">
+                    <button onclick="convertCase()">Search</button>
+                    <div id="answer7" class="answer"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Create a program to find the location from a string.</td>
+            <td>
+                <div class="search-container">
+                    <input type="text" id="search8string" placeholder="Enter string">
+                    <input type="text" id="search8word" placeholder="Enter any word">
+                    <button onclick="findLocation()">Search</button>
+                    <div id="answer8" class="answer"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Using slice, you can delete elements, insert elements, and replace elements one by one and simultaneously in JavaScript.</td>
+            <td>
+                <div class="search-container">
+                    <input type="text" id="search9" placeholder="Enter any array (comma separated)">
+                    <button onclick="modifyArray()">Search</button>
+                    <div id="answer9" class="answer"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Create a javascript to detect the number of words, characters, spaces, and special symbols used in a string.</td>
+            <td>
+                <div class="search-container">
+                    <input type="text" id="search10" placeholder="Enter sentence">
+                    <button onclick="countDetails()">Search</button>
+                    <div id="answer10" class="answer"></div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    function find10thChar() {
+        let arr = document.getElementById("search1").value.split(',');
+        let result = arr[9] ? arr[9] : "Array is too short or invalid.";
+        document.getElementById("answer1").innerText = "10th character: " + result;
+    }
+
+    function findLastElement() {
+        let arr = document.getElementById("search2").value.split(',');
+        let result = arr[arr.length - 1] ? arr[arr.length - 1] : "Array is empty.";
+        document.getElementById("answer2").innerText = "Last element: " + result;
+    }
+
+    function validatePhoneNumber() {
+        let phoneNumber = document.getElementById("search3").value;
+        if (phoneNumber.length === 10 && /^\d+$/.test(phoneNumber)) {
+            document.getElementById("answer3").innerText = "Valid number: " + phoneNumber;
+        } else {
+            document.getElementById("answer3").innerText = "Please enter exactly 10 digits.";
+        }
+    }
+
+    function findRepeatedChars() {
+        let arr = document.getElementById("search4array").value.split(',');
+        let word = document.getElementById("search4word").value;
+        let repeatedChars = [];
+        for (let char of word) {
+            if (word.indexOf(char) !== word.lastIndexOf(char)) {
+                repeatedChars.push(char);
+            }
+        }
+        document.getElementById("answer4").innerText = "Repeated characters: " + [...new Set(repeatedChars)].join(', ');
+    }
+
+    function countVowels() {
+        let arr = document.getElementById("search5").value.split(',');
+        let vowels = ['a', 'e', 'i', 'o', 'u'];
+        let count = arr.filter(char => vowels.includes(char.toLowerCase())).length;
+        document.getElementById("answer5").innerText = "Number of vowels: " + count;
+    }
+
+    function findLongestWord() {
+        let str = document.getElementById("search6").value;
+        let words = str.split(' ');
+        let longestWord = words.reduce((a, b) => a.length > b.length ? a : b);
+        document.getElementById("answer6").innerText = "Longest word: " + longestWord;
+    }
+
+    function convertCase() {
+        let str = document.getElementById("search7").value;
+        let convertedStr = str.split(' ').map(word => 
+            word === word.toUpperCase() ? word.toLowerCase() : word.toUpperCase()
+        ).join(' ');
+        document.getElementById("answer7").innerText = "Converted sentence: " + convertedStr;
+    }
+
+    function findLocation() {
+        let str = document.getElementById("search8string").value;
+        let word = document.getElementById("search8word").value;
+        let index = str.indexOf(word);
+        if (index !== -1) {
+            document.getElementById("answer8").innerText = "Location of the word: " + index;
+        } else {
+            document.getElementById("answer8").innerText = "Word not found.";
+        }
+    }
+
+    function modifyArray() {
+        let arr = document.getElementById("search9").value.split(',');
+        arr.splice(2, 1, 6, 7); // Removes 3, inserts 6 and 7
+        document.getElementById("answer9").innerText = "Modified array: " + arr;
+    }
+
+    function countDetails() {
+        let str = document.getElementById("search10").value;
+        let words = str.split(/\s+/).filter(word => word.length > 0);
+        let charCount = str.replace(/\s+/g, '').length;
+        let spaceCount = str.split(' ').length - 1;
+        let specialSymbols = str.replace(/[a-zA-Z0-9\s]/g, '').length;
+        document.getElementById("answer10").innerText = 
+            `Words: ${words.length}\nCharacters: ${charCount}\nSpaces: ${spaceCount}\nSpecial symbols: ${specialSymbols}`;
+    }
+</script>
+
+</body>
+</html>
