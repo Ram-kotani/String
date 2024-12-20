@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Character and Name by Index</title>
+    </head>
+<body>
+    <div class="container">
+        <!-- Alphabet Search -->
+        <h2>Find a Character from A-Z</h2>
+        <p>Enter a number between 0 and 25 to find the corresponding character in the alphabet.</p>
+        <input type="number" id="searchIndex" placeholder="Enter number (0-25)" min="0" max="25">
+        <button class="button" onclick="findCharacterByIndex()">Search Alphabet</button>
+        <div id="result-alphabet" class="result"></div>
+
+        <!-- Names Search -->
+        <h2>Find a Name from the List</h2>
+        <p>Enter your lucky number and know which fruit is your lucky fruit from the fruits you know:</p>
+        <input type="number" id="searchNameIndex" placeholder="Enter number (0-69)" min="0" max="69">
+        <button class="button" onclick="findNameByIndex()">Search Name</button>
+        <div id="result-name" class="result"></div>
+    </div>
+
+</body>
+</html>
